@@ -1,0 +1,31 @@
+
+<div>
+  <h4>Order Details</h4>
+
+    <table>
+    <thead>
+      <tr>
+        <th colspan="2">Product</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% line_items.where(order_id: @order.id).each do |item| %>
+        <%= product = product.find_by(id: item.product_id)
+        <%= render 'product', quantity: product.quantity.to_i %>
+      <% end %>
+      <tr>
+        <th colspan="4">
+          TOTAL:
+        </th>
+        <th>
+          <%= humanized_money_with_symbol order.total_cents / 100 %>
+        </th>
+        <h2> <%= order.email %> </h2>
+      </tr>
+    </tbody>
+  </table>
+</div>

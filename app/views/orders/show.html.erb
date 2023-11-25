@@ -4,6 +4,13 @@
     <h1>Order #<%= @order.id %></h1>
   </header>
 
+  <div>
+    <h4>Order Details</h4>
+    <tbody>
+    <%= render 'orders/item_line' %>
+    </tbody>
+  </div>
+
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
   </div>
